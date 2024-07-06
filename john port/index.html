@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> Table Flipping | Nothing4us</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    button{
+  padding: 8px;
+  background-color:green;
+  font-size: 15px;
+  color: #ecfaec;
+  border-radius: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+  </style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container" id="app">
+  <header>
+    <h1 style="margin-right: 30em;">Anicet</h1>
+    <ul>
+      <li><a href="home-one.html">Home</a></li>
+    </ul>
+  </header>
+
+  <section>
+    <h4>Curriculum <span>Vital (CV)</span></h4>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="card-info">
+        <h1>Mon CV</h1>
+        <p>Je suis un professionel motivé et passionné ,doté d'un solide expériznce dans le domaine informatique. Mon parcours professionnel m'a permis
+          d'acquérir des compétence  approfondies dans la programmation ,en design etc... </p>
+          <button type="submit" name="telecharger" id="downloadButton" >Télécharger</button>
+        </div>
+      <div class="card-photo">
+        <div id="mask-1" class="mask"></div>
+        <div id="mask-2" class="mask"></div>
+
+
+        <img id="image" src="anicet.png">
+      </div>
+    </div>
+  </section>
+</div>
+<!-- partial -->
+  <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js'></script><script  src="./script.js"></script>
+<!-- partial -->
+  <script  src="./script.js"></script>
+  <script>
+    document.getElementById("downloadButton").addEventListener("click", function() {
+        var image = document.getElementById("image");
+        var url = image.src;
+        var nomFichier = url.substring(url.lastIndexOf("/") + 1);
+
+        var lienTelechargement = document.createElement("a");
+        lienTelechargement.href = url;
+        lienTelechargement.download = nomFichier;
+
+        document.body.appendChild(lienTelechargement);
+        lienTelechargement.click();
+
+        document.body.removeChild(lienTelechargement);
+    });
+</script>
+</body>
+</html>
